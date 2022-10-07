@@ -48,7 +48,7 @@ def get_dataframe() -> pd.DataFrame:
 
     # file_path = os.path.abspath(input("File path: ")).strip()
     file_path = os.path.abspath(
-        "/Users/mjvdw/Downloads/transaction-report.csv").strip()
+        f"/Users/{os.getlogin()}/Downloads/transaction-report.csv").strip()
     df = pd.read_csv(file_path)
     return df
 
@@ -88,8 +88,6 @@ def convert_dataframe(df: pd.DataFrame) -> pd.DataFrame:
 
     # Final ticker adjustments
     converted_df = converted_df.replace(TICKER_ADJUSTMENTS)
-
-    print(converted_df["Shares"].tail(50))
 
     return converted_df
 
